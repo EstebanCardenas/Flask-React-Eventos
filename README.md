@@ -43,6 +43,10 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 
 Ejecuta el Back-End hecho en Flask
 
+### `npm install`
+
+Instalar dependencias
+
 ## Learn More
 
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
