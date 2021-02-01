@@ -1,0 +1,196 @@
+{
+	"info": {
+		"_postman_id": "a8bc60f2-6b48-4db6-a8f3-2bf6fe0f0f7a",
+		"name": "Proyecto 0",
+		"description": "Pruebas CRUD para el Proyecto 0.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Registro",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"ne.cardenas@gmail.com\",\r\n    \"usuario\": \"ne.cardenas\",\r\n    \"contrasena\": \"1234\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/registro",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"registro"
+					]
+				},
+				"description": "Registra un usario en el sistema. En el body del request se envía el email, el usuario y la respectiva contraseña. Si ya está registrado el email o el usuario se devuelve un mensaje de error. En caso contrario, el servidor devuleve el id, el usuario y tokens JWT."
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"usuario\": \"ne.cardenas\",\r\n    \"contrasena\": \"1234\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/login",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"login"
+					]
+				},
+				"description": "Loggea a un usuario en la aplicación. En el body del request se envía el usuario y su contraseña. Si el usuario no está registrado, o si la contraseña no coincide, se devuelve un mensaje de error. En caso contrario, el servidor devuelve el id, el usuario y tokens JWT."
+			},
+			"response": []
+		},
+		{
+			"name": "CrearEvento",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\": \"Curso Flask\",\r\n    \"categoria\": \"Curso\",\r\n    \"lugar\": \"Zoom\",\r\n    \"direccion\": \"No aplica\",\r\n    \"f_inicio\": 1622869200000,\r\n    \"f_fin\": 1623301200000,\r\n    \"presencial\": false\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/eventos/1",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"eventos",
+						"1"
+					]
+				},
+				"description": "Crea un evento con los detalles especificados. En el body del request se envía el nombre, la categoría, el lugar, la dirección, las fechas de inicio y fin y si el evento es presencial. En la ruta del request se envía el id del usuario al que se le quiere asignar el evento. Si el usuario no está registrado, o el usuario tiene un evento con el mismo nombre, o si existe alguna inconsistencia en los datos proporcionados, se devuelve un mensaje de error. En caso contrario, el servidor notifica que el evento fue creado exitosamente."
+			},
+			"response": []
+		},
+		{
+			"name": "GetEventos",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/eventos/1",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"eventos",
+						"1"
+					]
+				},
+				"description": "Obtiene todos los eventos ordenados descendentemente según fecha de creación para un usuario determinado. En la ruta del request se especifica el usuario para el cual se quieren obtener los eventos. Si el usuario no tiene eventos, se devuelve un código de respuesta 404. En caso contrario, devuelve todos los eventos para dicho usuario en el orden especificado."
+			},
+			"response": []
+		},
+		{
+			"name": "PutEvento",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\": \"Curso JavaScript\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/eventos/1/1",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"eventos",
+						"1",
+						"1"
+					]
+				},
+				"description": "Actualiza el evento especificado de un usuario en particular. En el body del request se envían los campos del evento que se quieren actualizar. En la ruta del request se debe enviar el id del usuario y el id del evento respectivamente. Si existe alguna inconsistencia en los datos, o si el evento no existe, se devuelve un mensaje de error. En caso contrario, se notifica que el evento fue actualizado."
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteEvento",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5000/eventos/1",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"eventos",
+						"1"
+					]
+				},
+				"description": "Elimina un evento del sistema. En la ruta del request se envía el id del evento a eliminar. Si el evento no existe, se devuelve un código 404. En caso contrario, se elimina el evento y se devuelve un mensaje notificando el éxito de la operación."
+			},
+			"response": []
+		}
+	]
+}
