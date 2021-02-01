@@ -55,7 +55,7 @@ export default function Login() {
       localStorage.setItem("usuario", json["usuario"])
       localStorage.setItem("access_token", json["access_token"])
       localStorage.setItem("refresh_token", json["refresh_token"])
-      window.location.replace("http://localhost:3000/gestor")
+      window.location.replace("/gestor")
     })
   }
 

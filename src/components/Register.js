@@ -56,7 +56,7 @@ export default function Register() {
         localStorage.setItem("access_token", json["access_token"])
         localStorage.setItem("refresh_token", json["refresh_token"])
         alert("Registro exitoso!")
-        window.location.replace("http://localhost:3000/")
+        window.location.replace("/")
     })
     .catch(err => {
         console.log(err)
