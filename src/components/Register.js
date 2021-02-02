@@ -37,7 +37,7 @@ export default function Register() {
 
   function handleRegister(evt) {
     evt.preventDefault()
-    fetch('/registro', {
+    fetch('/api/registro', {
         method: "POST",
         body: JSON.stringify({
           usuario: user,

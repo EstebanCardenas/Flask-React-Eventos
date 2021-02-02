@@ -96,7 +96,7 @@ export default function Eventos() {
     useEffect(() => {
         const id = localStorage.getItem("id")
         if (id) {
-            fetch(`/eventos/${id}`)
+            fetch(`/api/eventos/${id}`)
             .then(resp => {
                 return resp.json()
             })
@@ -129,7 +129,7 @@ export default function Eventos() {
             presencial: evtPresencial
         }
         const id = localStorage.getItem("id")
-        const url = `/eventos/${id}`
+        const url = `/api/eventos/${id}`
         fetch(url, {
             method: 'POST',
             body: JSON.stringify(evtDatos)

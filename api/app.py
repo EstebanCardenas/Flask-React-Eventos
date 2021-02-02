@@ -61,7 +61,7 @@ evento_schema = EventoSchema()
 eventos_schema = EventoSchema(many=1)
 
 ## API REST
-@app.route('/registro', methods=['POST'])
+@app.route('/api/registro', methods=['POST'])
 def registro():
     data = json.loads(request.data)
     print(data)
@@ -94,7 +94,7 @@ def registro():
     else:
         return {'error': 'No se pudieron procesar los datos'}, 403
 
-@app.route('/login', methods=['POST'])
+@app.route('/api/login', methods=['POST'])
 def login():
     data = json.loads(request.data)
     print(data)
@@ -116,7 +116,7 @@ def login():
     else:
         return {"error": "Contraseña Incorrecta"}
 
-@app.route('/eventos/<int:idu>', methods=['GET'])
+@app.route('/api/eventos/<int:idu>', methods=['GET'])
 def getEventos(idu):
     evs = Evento.query.filter(Evento.usuario_id == idu)
     if evs.first() != None:
@@ -125,7 +125,7 @@ def getEventos(idu):
     else:
         return {"error": "No se encontraron eventos para el usuario"}, 404
 
-@app.route('/eventos/<int:idu>', methods=['POST'])
+@app.route('/api/eventos/<int:idu>', methods=['POST'])
 def postEvento(idu):
     data = json.loads(request.data)
     print(data)
@@ -161,7 +161,7 @@ def postEvento(idu):
     db.session.commit()
     return {"exito": "Evento creado!", "id": evt.id}
 
-@app.route('/eventos/<int:idu>/<int:ide>', methods=['PUT'])
+@app.route('/api/eventos/<int:idu>/<int:ide>', methods=['PUT'])
 def putEvento(idu, ide):
     evt = Evento.query.get_or_404(ide)
     data = json.loads(request.data)
@@ -200,7 +200,7 @@ def putEvento(idu, ide):
     else:
         return {"error": "Evento no encontrado"}
 
-@app.route('/eventos/<int:ide>', methods=['DELETE'])
+@app.route('/api/eventos/<int:ide>', methods=['DELETE'])
 def deleteEvento(ide):
     evt = Evento.query.get_or_404(ide)
     if evt:

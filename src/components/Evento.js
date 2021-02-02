@@ -36,7 +36,7 @@ export default function Evento(props) {
     }
 
     function eliminar() {
-        const url = `/eventos/${props.evtId}`
+        const url = `/api/eventos/${props.evtId}`
         fetch(url, {
             method: 'DELETE'
         })
@@ -91,7 +91,7 @@ export default function Evento(props) {
         if (mod.length) {
             const newEv = mod[1]
             const uid = localStorage.getItem("id")
-            fetch(`/eventos/${uid}/${props.evtId}`, {
+            fetch(`/api/eventos/${uid}/${props.evtId}`, {
                 method: 'PUT',
                 body: JSON.stringify(newEv)
             })

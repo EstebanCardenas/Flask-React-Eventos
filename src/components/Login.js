@@ -37,7 +37,7 @@ export default function Login() {
 
   function login(evt) {
     evt.preventDefault()
-    fetch('/login', {
+    fetch('/api/login', {
       method: 'POST',
       body: JSON.stringify({
           usuario: user,
