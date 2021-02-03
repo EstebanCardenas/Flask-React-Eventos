@@ -102,7 +102,7 @@
 						"1"
 					]
 				},
-				"description": "Crea un evento con los detalles especificados. En el body del request se envía el nombre, la categoría, el lugar, la dirección, las fechas de inicio y fin y si el evento es presencial. En la ruta del request se envía el id del usuario al que se le quiere asignar el evento. Si el usuario no está registrado, o el usuario tiene un evento con el mismo nombre, o si existe alguna inconsistencia en los datos proporcionados, se devuelve un mensaje de error. En caso contrario, el servidor notifica que el evento fue creado exitosamente."
+				"description": "Crea un evento con los detalles especificados. En el body del request se envía el nombre, la categoría, el lugar, la dirección, las fechas de inicio y fin y si el evento es presencial. <br><br>\n<b>Las fechas de inicio y fin deben ser timestamps.</b> <br><br>\n<b>El campo presencial es un booleano.</b> <br><br>\n<b>En la ruta del request se envía el id del usuario al que se le quiere asignar el evento.</b> <br><br>\nSi el usuario no está registrado, o el usuario tiene un evento con el mismo nombre, o si existe alguna inconsistencia en los datos proporcionados, se devuelve un mensaje de error. En caso contrario, el servidor notifica que el evento fue creado exitosamente."
 			},
 			"response": []
 		},
@@ -134,7 +134,7 @@
 						"1"
 					]
 				},
-				"description": "Obtiene todos los eventos ordenados descendentemente según fecha de creación para un usuario determinado. En la ruta del request se especifica el usuario para el cual se quieren obtener los eventos. Si el usuario no tiene eventos, se devuelve un código de respuesta 404. En caso contrario, devuelve todos los eventos para dicho usuario en el orden especificado."
+				"description": "Obtiene todos los eventos ordenados descendentemente según fecha de creación para un usuario determinado. <b>En la ruta del request se especifica el usuario para el cual se quieren obtener los eventos.</b> Si el usuario no tiene eventos, se devuelve un código de respuesta 404. En caso contrario, devuelve todos los eventos para dicho usuario en el orden especificado."
 			},
 			"response": []
 		},
@@ -169,7 +169,7 @@
 						"1"
 					]
 				},
-				"description": "Actualiza el evento especificado de un usuario en particular. En el body del request se envían los campos del evento que se quieren actualizar. En la ruta del request se debe enviar el id del usuario y el id del evento respectivamente. Si existe alguna inconsistencia en los datos, o si el evento no existe, se devuelve un mensaje de error. En caso contrario, se notifica que el evento fue actualizado."
+				"description": "Actualiza el evento especificado de un usuario en particular. En el body del request se envían los campos del evento que se quieren actualizar. En la ruta del request se debe enviar el id del usuario y el id del evento respectivamente. Si existe alguna inconsistencia en los datos, o si el evento no existe, se devuelve un mensaje de error. En caso contrario, se notifica que el evento fue actualizado. <br>\n\n<b>En caso de que se quieran actualizar las fechas de inicio y fin, nuevamente deben enviarse timestamps.</b>"
 			},
 			"response": []
 		},
@@ -194,7 +194,7 @@
 						"1"
 					]
 				},
-				"description": "Elimina un evento del sistema. En la ruta del request se envía el id del evento a eliminar. Si el evento no existe, se devuelve un código 404. En caso contrario, se elimina el evento y se devuelve un mensaje notificando el éxito de la operación."
+				"description": "Elimina un evento del sistema. <b>En la ruta del request se envía el id del evento a eliminar.</b> Si el evento no existe, se devuelve un código 404. En caso contrario, se elimina el evento y se devuelve un mensaje notificando el éxito de la operación."
 			},
 			"response": []
 		}
